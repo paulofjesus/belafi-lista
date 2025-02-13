@@ -1,11 +1,217 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Belafi - Lista VIP Exclusiva</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'belafi-red': '#FF0000',
+                        'belafi-dark-red': '#54090E',
+                        'belafi-gold': '#FFD700',
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'Arial', 'sans-serif'], // Define Poppins como a fonte principal
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background: radial-gradient(circle at center, #FF0000 30%, #54090E 100%);
+            min-height: 100vh;
+        }
+
+        .glass-form {
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .form-input {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .form-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .form-input:focus {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+            outline: none;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #E60023 0%, #FFD700 150%);
+        }
+    </style>
 </head>
-<body>
-    <h1>BELAFI</h1>
+
+<body class="flex justify-center md:p-16">
+    <main class="max-w-6xl mx-auto p-6 m-12">
+
+        <!-- Primeira Linha (duas colunas) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Coluna 1 -->
+            <div class="max-w-3xl mx-auto space-y-6">
+                <div class="flex items-center space-x-2">
+                    <img src="assets/images/star.svg" alt="Ícone VIP" class="w-5 h-5">
+                    <span class="text-belafi-gold uppercase tracking-wider text-sm font-medium">Lista VIP
+                        Exclusiva</span>
+                </div>
+
+                <img src="assets/images/Logo.png" alt="" width="180">
+
+                <h2 class="text-4xl md:text-4xl font-bold text-white mb-2 ">A Revolução da Beleza</h2>
+
+                <p class="text-white text-[18px]">
+                    Entre para nossa lista VIP e seja a primeira a descobrir o futuro dos cosméticos. Uma experiência
+                    única de beleza está prestes a começar.
+                </p>
+
+                <div class="flex items-center space-x-2">
+                    <span class="text-white text-[14px] p-2 rounded-md cta-button">
+                        ✨Junte-se a mais de 500 pessoas na lista de espera
+                    </span>
+                </div>
+                           
+            </div>
+
+            <!-- Coluna 2 -->
+            <div class="max-w-2xl mx-auto ">
+                <div class="glass-form p-6 rounded-3xl md:col-start-2">
+                    <form class="space-y-6" id="vipForm">
+                        <div>
+                            <label class="block text-white text-lg mb-1">Seu Nome</label>
+                            <input type="text" required
+                                class="form-input w-full px-4 py-3 text-base rounded-xl bg-opacity-20 transition-all duration-300"
+                                placeholder="Digite seu nome completo">
+                        </div>
+                        <div>
+                            <label class="block text-white text-lg mb-1">WhatsApp</label>
+                            <input type="tel" required
+                                class="form-input w-full px-4 py-3 text-base rounded-xl bg-opacity-20 transition-all duration-300"
+                                placeholder="Digite seu WhatsApp">
+                        </div>
+                        <button type="submit"
+                            class="cta-button w-full py-3 rounded-xl font-bold text-lg text-white hover:opacity-95 transition-all duration-300 flex items-center justify-center mt-6">
+                            Quero Ser VIP
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                        <p class="text-white/60 text-center text-sm">
+                            Ao se inscrever, você receberá novidades exclusivas em primeira mão.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Segunda Linha (coluna centralizada) -->
+        <div class="mt-12">
+            <div class="col-span-2 text-center flex flex-col items-center justify-center space-y-2">
+                <p class="text-white">Siga-nos no insta para não perder nenhuma novidade</p>
+                <a href="https://www.instagram.com/belaficosmeticos/">
+                    <div class="inline-flex items-center text-white/80 hover:text-white transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30"
+                            viewBox="0,0,256,256">
+                            <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                                stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                                font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                                style="mix-blend-mode: normal">
+                                <g transform="scale(5.12,5.12)">
+                                    <path
+                                        d="M16,3c-7.16752,0 -13,5.83248 -13,13v18c0,7.16752 5.83248,13 13,13h18c7.16752,0 13,-5.83248 13,-13v-18c0,-7.16752 -5.83248,-13 -13,-13zM16,5h18c6.08648,0 11,4.91352 11,11v18c0,6.08648 -4.91352,11 -11,11h-18c-6.08648,0 -11,-4.91352 -11,-11v-18c0,-6.08648 4.91352,-11 11,-11zM37,11c-1.10457,0 -2,0.89543 -2,2c0,1.10457 0.89543,2 2,2c1.10457,0 2,-0.89543 2,-2c0,-1.10457 -0.89543,-2 -2,-2zM25,14c-6.06329,0 -11,4.93671 -11,11c0,6.06329 4.93671,11 11,11c6.06329,0 11,-4.93671 11,-11c0,-6.06329 -4.93671,-11 -11,-11zM25,16c4.98241,0 9,4.01759 9,9c0,4.98241 -4.01759,9 -9,9c-4.98241,0 -9,-4.01759 -9,-9c0,-4.98241 4.01759,-9 9,-9z">
+                                    </path>
+                                </g>
+                            </g>
+                        </svg>
+                        <span class="ml-1">@belaficosmeticos</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+
+        function save() {
+            const testUrl = 'https://primary-production-78e2.up.railway.app/webhook-test/lead';
+            const prodUrl = 'https://primary-production-78e2.up.railway.app/webhook/lead';
+
+            const nameInput = document.querySelector('input[type="text"]');
+            const whatsappInput = document.querySelector('input[type="tel"]');
+
+            const data = {
+                name: nameInput.value,
+                whatsapp: whatsappInput.value.replace(/\D/g, '') // Remove caracteres não numéricos
+            };
+
+            fetch(prodUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+                .then(response => response.json())
+                .then(result => {
+                    alert('Parabéns! Você está na nossa lista VIP. Em breve entraremos em contato!');
+                    document.getElementById('vipForm').reset();
+                })
+                .catch(error => {
+                    console.error('Erro ao enviar dados:', error);
+                    // alert('Ocorreu um erro ao enviar seus dados. Tente novamente mais tarde.');
+                });
+
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Máscara para WhatsApp
+            const whatsappInput = document.querySelector('input[type="tel"]');
+            whatsappInput.addEventListener('input', (e) => {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length > 11) value = value.slice(0, 11);
+                if (value.length > 2) value = `(${value.slice(0, 2)}) ${value.slice(2)}`;
+                if (value.length > 9) value = `${value.slice(0, 9)}-${value.slice(9)}`;
+                e.target.value = value;
+            });
+
+            // Formulário
+            const vipForm = document.getElementById('vipForm');
+            vipForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                // Pega os dados do formulário
+                const name = vipForm.querySelector('input[type="text"]').value;
+                const whatsapp = vipForm.querySelector('input[type="tel"]').value.replace(/\D/g, ''); // Remove caracteres não numéricos
+
+                // Chama a função save()
+                const success = await save(name, whatsapp);
+
+                if (success) {
+                    alert('Parabéns! Você está na nossa lista VIP. Em breve entraremos em contato!');
+                    vipForm.reset();
+                } else {
+                    alert('Ocorreu um erro ao se inscrever. Tente novamente mais tarde.');
+                }
+            });
+        });
+    </script>
 </body>
+
 </html>
