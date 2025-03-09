@@ -1,236 +1,691 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Belafi - Lista VIP Exclusiva</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
+    <title>#Cabelos de Diva - Leave-in Capilar Multifuncional</title>
+    
+    <!-- Fontes -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js" defer></script>
+    <script src="js/main.js" defer></script>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'belafi-red': '#FF0000',
-                        'belafi-dark-red': '#54090E',
-                        'belafi-gold': '#FFD700',
-                    },
-                    fontFamily: {
-                        sans: ['Poppins', 'Arial', 'sans-serif'], // Define Poppins como a fonte principal
-                    },
-                }
-            }
-        }
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
     </script>
-    <style>
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-            }
-
-            100% {
-                opacity: 1;
-            }
-        }
-
-        .fade-in {
-            animation: fadeIn 2s ease-out;
-        }
-
-
-        body {
-            background: radial-gradient(circle at center, #FF0000 30%, #54090E 100%);
-            min-height: 100vh;
-        }
-
-        .glass-form {
-            background: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .form-input {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: white;
-        }
-
-        .form-input::placeholder {
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        .form-input:focus {
-            background: rgba(255, 255, 255, 0.15);
-            border-color: rgba(255, 255, 255, 0.3);
-            outline: none;
-        }
-
-        .cta-button {
-            background: linear-gradient(135deg, #E60023 0%, #FFD700 150%);
-        }
-    </style>
 </head>
-
-<body class="flex justify-center md:p-16">
-    <main class="max-w-6xl mx-auto p-6 m-12">
-
-        <audio id="background-music" autoplay loop>
-            <source src="assets/audio/audio.mp3" type="audio/mp3">
-            Seu navegador não suporta áudio HTML5.
-        </audio>
-
-        <!-- Primeira Linha (duas colunas) -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 fade-in">
-            <!-- Coluna 1 -->
-            <div class="max-w-3xl mx-auto space-y-6">
-                <div class="flex items-center space-x-2">
-                    <img src="assets/images/star.svg" alt="Ícone VIP" class="w-5 h-5">
-                    <span class="text-belafi-gold uppercase tracking-wider text-sm font-medium">Lista VIP
-                        Exclusiva</span>
-                </div>
-
-                <img src="assets/images/Logo.png" alt="" width="180">
-
-                <h2 class="text-4xl md:text-4xl font-bold text-white mb-2 ">A Revolução da Beleza</h2>
-
-                <p class="text-white text-[18px]">
-                    Entre para nossa lista VIP e seja a primeira a descobrir o futuro dos cosméticos. Uma experiência
-                    única de beleza está prestes a começar.
+<body>
+    <!-- Seção Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero__content">
+                <img src="images/logo.png" alt="Logo #Cabelos de Diva" class="hero__logo" data-aos="fade-up">
+                <h1 data-aos="fade-up">O Leave-in Multifuncional Que Vai Transformar Seus Cebelos!</h1>
+                <p class="subtitle" data-aos="fade-up" data-aos-delay="200">
+                    ✨ 12 benefícios para um cabelo sedoso, brilhoso e protegido desde a primeira aplicação!
                 </p>
-
-                <div class="flex items-center space-x-2">
-                    <span class="text-white text-[14px] p-2 rounded-md cta-button">
-                        ✨Junte-se a mais de 500 pessoas na lista de espera
-                    </span>
-                </div>
-            </div>
-
-            <!-- Coluna 2 -->
-            <div class="max-w-2xl mx-auto ">
-                <div class="glass-form p-6 rounded-3xl md:col-start-2">
-                    <form class="space-y-6" id="vipForm">
-                        <div>
-                            <label class="block text-white text-lg mb-1">Seu Nome</label>
-                            <input type="text" required
-                                class="form-input w-full px-4 py-3 text-base rounded-xl bg-opacity-20 transition-all duration-300"
-                                placeholder="Digite seu nome completo">
-                        </div>
-                        <div>
-                            <label class="block text-white text-lg mb-1">WhatsApp</label>
-                            <input type="tel" required
-                                class="form-input w-full px-4 py-3 text-base rounded-xl bg-opacity-20 transition-all duration-300"
-                                placeholder="Digite seu WhatsApp">
-                        </div>
-                        <button type="submit"
-                            class="cta-button w-full py-3 rounded-xl font-bold text-lg text-white hover:opacity-95 transition-all duration-300 flex items-center justify-center mt-6">
-                            Quero Ser VIP
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 5l7 7-7 7" />
-                            </svg>
-                        </button>
-                        <p class="text-white/60 text-center text-sm">
-                            Ao se inscrever, você receberá novidades exclusivas em primeira mão.
-                        </p>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-        <!-- Segunda Linha (coluna centralizada) -->
-        <div class="mt-12 fade-in">
-            <div class="col-span-2 text-center flex flex-col items-center justify-center space-y-2">
-                <p class="text-white">Siga-nos no insta para não perder nenhuma novidade</p>
-                <a href="https://www.instagram.com/belaficosmeticos/">
-                    <div class="inline-flex items-center text-white/80 hover:text-white transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30"
-                            viewBox="0,0,256,256">
-                            <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
-                                stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
-                                font-family="none" font-weight="none" font-size="none" text-anchor="none"
-                                style="mix-blend-mode: normal">
-                                <g transform="scale(5.12,5.12)">
-                                    <path
-                                        d="M16,3c-7.16752,0 -13,5.83248 -13,13v18c0,7.16752 5.83248,13 13,13h18c7.16752,0 13,-5.83248 13,-13v-18c0,-7.16752 -5.83248,-13 -13,-13zM16,5h18c6.08648,0 11,4.91352 11,11v18c0,6.08648 -4.91352,11 -11,11h-18c-6.08648,0 -11,-4.91352 -11,-11v-18c0,-6.08648 4.91352,-11 11,-11zM37,11c-1.10457,0 -2,0.89543 -2,2c0,1.10457 0.89543,2 2,2c1.10457,0 2,-0.89543 2,-2c0,-1.10457 -0.89543,-2 -2,-2zM25,14c-6.06329,0 -11,4.93671 -11,11c0,6.06329 4.93671,11 11,11c6.06329,0 11,-4.93671 11,-11c0,-6.06329 -4.93671,-11 -11,-11zM25,16c4.98241,0 9,4.01759 9,9c0,4.98241 -4.01759,9 -9,9c-4.98241,0 -9,-4.01759 -9,-9c0,-4.98241 4.01759,-9 9,-9z">
-                                    </path>
-                                </g>
-                            </g>
-                        </svg>
-                        <span class="ml-1 text-white">@belaficosmeticos</span>
-                    </div>
+                <a href="#pricing" class="cta-button hero-button" data-aos="fade-up" data-aos-delay="400">
+                    QUERO MEU #CABELOS DE DIVA AGORA!
                 </a>
             </div>
+            <div class="hero__image" data-aos="fade-left">
+                <img src="images/designproduto.png" alt="Frasco #Cabelos de Diva" class="product-image">
+            </div>
         </div>
-    </main>
+    </section>
 
-    <script>
+    <!-- Seção O Que é o #Cabelos de Diva -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about__content">
+                <h2 class="section-title" data-aos="fade-up">O Que é o #Cabelos de Diva?</h2>
+                <p class="section-description" data-aos="fade-up" data-aos-delay="200">
+                    O #Cabelos de Diva é um leave-in multifuncional com 12 benefícios 
+                    que transformam seus fios instantaneamente, deixando-os mais macios, saudáveis e radiantes desde a primeira aplicação!
+                </p>
+                
+                <div class="swiper benefits-carousel" data-aos="fade-up" data-aos-delay="300">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="benefit-card">
+                                <span class="benefit-icon">💧</span>
+                                <h3>Hidratação Intensa</h3>
+                                <p>Nutrição profunda que restaura a umidade natural dos fios desde a primeira aplicação</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="benefit-card">
+                                <span class="benefit-icon">🛡️</span>
+                                <h3>Proteção Térmica</h3>
+                                <p>Cria uma barreira protetora contra danos causados por secador, chapinha e babyliss</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="benefit-card">
+                                <span class="benefit-icon">🌀</span>
+                                <h3>Controle de Frizz</h3>
+                                <p>Elimina o aspecto arrepiado e controla os fios rebeldes mesmo em dias úmidos</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="benefit-card">
+                                <span class="benefit-icon">🔄</span>
+                                <h3>Reparação de Danos</h3>
+                                <p>Recupera a estrutura dos fios danificados por processos químicos e agressões externas</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="benefit-card">
+                                <span class="benefit-icon">💪</span>
+                                <h3>Fortalecimento dos Fios</h3>
+                                <p>Reduz a quebra e fortalece os cabelos fragilizados, prevenindo a queda</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="benefit-card">
+                                <span class="benefit-icon">✨</span>
+                                <h3>Brilho Intenso</h3>
+                                <p>Proporciona um brilho radiante e natural, deixando os cabelos com aspecto saudável e luminoso</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="benefit-card">
+                                <span class="benefit-icon">🧴</span>
+                                <h3>Desembaraço</h3>
+                                <p>Facilita a escovação e elimina os nós, tornando o penteado muito mais fácil</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="benefit-card">
+                                <span class="benefit-icon">✂️</span>
+                                <h3>Prev. de Pontas Duplas</h3>
+                                <p>Sela as pontas e previne o ressecamento, reduzindo a necessidade de cortes frequentes</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="benefit-card">
+                                <span class="benefit-icon">🌟</span>
+                                <h3>Maciez Incomparável</h3>
+                                <p>Proporciona uma textura sedosa e suave ao toque que dura por dias</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="benefit-card">
+                                <span class="benefit-icon">🍃</span>
+                                <h3>Ação Antioxidante</h3>
+                                <p>Combate os radicais livres e previne o envelhecimento precoce dos fios</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="benefit-card">
+                                <span class="benefit-icon">☀️</span>
+                                <h3>Proteção UV</h3>
+                                <p>Protege os cabelos contra os danos causados pelos raios solares e poluição</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="benefit-card">
+                                <span class="benefit-icon">🔒</span>
+                                <h3>Selagem das Cutículas</h3>
+                                <p>Alinha as cutículas capilares, proporcionando brilho intenso e aspecto saudável</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
 
-        function save() {
-            const testUrl = 'https://primary-production-78e2.up.railway.app/webhook-test/lead';
-            const prodUrl = 'https://primary-production-78e2.up.railway.app/webhook/lead';
+                <div class="text-center">
+                    <a href="#pricing" class="cta-button" data-aos="fade-up" data-aos-delay="400">
+                        QUERO TRANSFORMAR MEU CABELO AGORA!
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            const nameInput = document.querySelector('input[type="text"]');
-            const whatsappInput = document.querySelector('input[type="tel"]');
+    <!-- Seção de Depoimentos -->
+    <section class="testimonials" id="testimonials" style="display: none;">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Resultados das Nossas Divas</h2>
+            <p class="section-description" data-aos="fade-up" data-aos-delay="200">
+                Veja os resultados incríveis que usa e recomenda!
+            </p>
 
-            const data = {
-                name: nameInput.value,
-                whatsapp: whatsappInput.value.replace(/\D/g, '') // Remove caracteres não numéricos
-            };
+            <div class="testimonials-carousel swiper" data-aos="fade-up" data-aos-delay="300">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <div class="client-photo">
+                                <img src="images/testimonials/profile1.jpg" alt="Maria Silva">
+                            </div>
+                            <div class="testimonial-content">
+                                <h3>Maria Silva</h3>
+                                <div class="stars">★★★★★</div>
+                                <p>"Meu cabelo mudou completamente! Nunca esteve tão sedoso e brilhante. Recomendo muito!"</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <div class="client-photo">
+                                <img src="images/testimonials/profile2.jpg" alt="Ana Santos">
+                            </div>
+                            <div class="testimonial-content">
+                                <h3>Ana Santos</h3>
+                                <div class="stars">★★★★★</div>
+                                <p>"Produto incrível! Em apenas uma semana já notei a diferença. Meus cabelos estão muito mais saudáveis!"</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <div class="client-photo">
+                                <img src="images/testimonials/profile3.jpg" alt="Julia Oliveira">
+                            </div>
+                            <div class="testimonial-content">
+                                <h3>Julia Oliveira</h3>
+                                <div class="stars">★★★★★</div>
+                                <p>"O melhor leave-in que já usei! Acabou com meu frizz e deixou meus cabelos super macios!"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+    </section>
 
-            fetch(prodUrl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            })
-                .then(response => response.json())
-                .then(result => {
-                    alert('Parabéns! Você está na nossa lista VIP. Em breve entraremos em contato!');
-                    document.getElementById('vipForm').reset();
-                })
-                .catch(error => {
-                    console.error('Erro ao enviar dados:', error);
-                    // alert('Ocorreu um erro ao enviar seus dados. Tente novamente mais tarde.');
-                });
+    <!-- Seção de Preços -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Oferta Especial de Lançamento</h2>
+            <p class="section-description" data-aos="fade-up" data-aos-delay="200">
+                Últimas unidades disponíveis neste lote especial!
+            </p>
 
+            <div class="pricing-grid" data-aos="fade-up" data-aos-delay="400">
+                <div class="price-card">
+                    <div class="price-header">
+                        <h3>1 Unidade</h3>
+                        <div class="product-image-container">
+                            <img src="images/offers/1frasco.png" alt="1 Frasco" class="price-product-image">
+                        </div>
+                        <p class="original-price">De R$ 159,90</p>
+                        <p class="price">Por R$ 79</p>
+                        <p class="savings">Economia de R$ 80,90</p>
+                    </div>
+                    <div class="price-features">
+                        <ul>
+                            <li>✓ 1 Leave-in #Cabelos de Diva</li>
+                            <li>✓ Entrega Expressa</li>
+                            <li>✓ Grupo VIP Exclusivo</li>
+                            <li>✓ Preço de Lançamento</li>
+                        </ul>
+                    </div>
+                    <button class="cta-button">ADQUIRIR AGORA</button>
+                </div>
+
+                <div class="price-card popular">
+                    <div class="popular-tag">MAIS VENDIDO</div>
+                    <div class="price-header">
+                        <h3>2 Unidades</h3>
+                        <div class="product-image-container">
+                            <img src="images/offers/2frascos.png" alt="2 Frascos" class="price-product-image">
+                        </div>
+                        <p class="original-price">De R$ 319,80</p>
+                        <p class="price">Por R$ 149</p>
+                        <p class="savings">Economia de R$ 170,80</p>
+                    </div>
+                    <div class="price-features">
+                        <ul>
+                            <li>✓ 2 Leave-in #Cabelos de Diva</li>
+                            <li>✓ Entrega Expressa</li>
+                            <li>✓ Grupo VIP Exclusivo</li>
+                            <li>✓ Preço de Lançamento</li>
+                        </ul>
+                    </div>
+                    <button class="cta-button popular-btn">ADQUIRIR AGORA</button>
+                </div>
+
+                <div class="price-card">
+                    <div class="price-header">
+                        <h3>3 Unidades</h3>
+                        <div class="product-image-container">
+                            <img src="images/offers/3frascos.png" alt="3 Frascos" class="price-product-image">
+                        </div>
+                        <p class="original-price">De R$ 479,70</p>
+                        <p class="price">Por R$ 199</p>
+                        <p class="savings">Economia de R$ 280,70 </p>
+                    </div>
+                    <div class="price-features">
+                        <ul>
+                            <li>✓ 3 Leave-in #Cabelos de Diva</li>
+                            <li>✓ Entrega Expressa</li>
+                            <li>✓ Grupo VIP Exclusivo</li>
+                            <li>✓ Preço de Lançamento</li>
+                        </ul>
+                    </div>
+                    <button class="cta-button">ADQUIRIR AGORA</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de História da Marca -->
+    <section class="brand-history">
+        <div class="container">
+            <div class="brand-history__content">
+                <h2>Nossa História</h2>
+                <p>Nascemos da paixão por cabelos saudáveis e da busca pela perfeição em produtos capilares. Nossa jornada começou com um sonho de transformar a vida das pessoas através do cuidado com os cabelos.</p>
+                <p>Hoje, o #Cabelos de Diva é referência em tratamento capilar, combinando tecnologia avançada com ingredientes naturais.</p>
+            </div>
+            <div class="brand-history__image">
+                <img src="images/belafipintura.png" alt="História #Cabelos de Diva">
+            </div>
+        </div>
+    </section>
+
+     <!-- Seção Social Media -->
+     <section class="social-media">
+        <div class="container">
+            <div class="social-media__content" data-aos="fade-up">
+                <div class="instagram-follow">
+                    <h2>Siga-nos no Instagram</h2>
+                    <p>Fique por dentro das novidades e dicas exclusivas!</p>
+                    <a href="https://www.instagram.com/belaficosmeticos" class="instagram-button" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="instagram-icon">
+                            <path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
+                        </svg>
+                        @belaficosmeticos
+                    </a>
+                </div>
+                <div class="music-player">
+                    <h2>Ouça Nossa Música Oficial</h2>
+                    <p>Embarque na experiência completa #Cabelos de Diva!</p>
+                    <div class="player-wrapper">
+                        <audio controls class="custom-audio-player">
+                            <source src="audio/song.mp3" type="audio/mpeg">
+                            Seu navegador não suporta o elemento de áudio.
+                        </audio>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção FAQ -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Dúvidas Frequentes</h2>
+            <p class="section-description" data-aos="fade-up" data-aos-delay="200">
+                Tire suas dúvidas sobre o #Cabelos de Diva
+            </p>
+
+            <div class="faq-grid" data-aos="fade-up" data-aos-delay="300">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Como devo aplicar o Leave-in #Cabelos de Diva?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Aplique uma pequena quantidade do produto nos cabelos úmidos ou secos, concentrando nas pontas. Não é necessário enxaguar. Use diariamente para melhores resultados.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Quanto tempo demora para ver resultados?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Os resultados são imediatos! Já na primeira aplicação você sentirá seus cabelos mais macios e brilhantes. Com o uso contínuo, os resultados ficam ainda mais evidentes.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>O produto serve para todos os tipos de cabelo?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim! O #Cabelos de Diva foi desenvolvido para todos os tipos de cabelo, desde os mais lisos até os mais cacheados. Sua fórmula versátil se adapta às necessidades específicas de cada tipo.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Em quanto tempo recebo meu produto?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>O prazo de entrega varia de 3 a 7 dias úteis, dependendo da sua região. Todas as entregas são feitas com código de rastreamento.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>O produto contém ingredientes que podem causar alergias?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>O #Cabelos de Diva é formulado com ingredientes hipoalergênicos e dermatologicamente testados. No entanto, se você tem histórico de alergias a produtos capilares, recomendamos fazer um teste em uma pequena área antes de usar. A lista completa de ingredientes está disponível na embalagem e pode ser solicitada antes da compra.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Quais são as formas de pagamento aceitas?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Aceitamos cartões de crédito (parcelamento em até 12x), cartões de débito, boleto bancário, PIX e transferência bancária. Todas as transações são processadas em ambiente seguro com criptografia de dados para garantir sua segurança.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>E se o produto não funcionar para o meu cabelo?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Oferecemos garantia de satisfação de 7 dias. Se você não estiver completamente satisfeita com os resultados, entre em contato com nosso atendimento ao cliente e faremos o reembolso integral do valor pago. Acreditamos tanto na eficácia do nosso produto que assumimos todo o risco da sua compra.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Final CTA -->
+    <section class="final-cta" id="final-cta">
+        <div class="container">
+            <div class="final-cta-content" data-aos="fade-up">
+                <h2>Transforme Seus Cabelos Agora!</h2>
+                <div class="final-benefits">
+                    <div class="final-benefit-item">
+                        <span class="check-icon">✓</span>
+                        <p>Produtos Exclusivos</p>
+                    </div>
+                    <div class="final-benefit-item">
+                        <span class="check-icon">✓</span>
+                        <p>Garantia de Qualidade Premium</p>
+                    </div>
+                    <div class="final-benefit-item">
+                        <span class="check-icon">✓</span>
+                        <p>Resultados Imediatos</p>
+                    </div>
+                </div>
+                <div class="final-price">
+                    <p class="original-price">De R$ 159,90</p>
+                    <p class="current-price">Por apenas R$ 79</p>
+                    <p class="savings">Economia de R$ 80,90</p>
+                </div>
+                <a href="#pricing" class="cta-button">QUERO MEU #CABELOS DE DIVA AGORA!</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/5511966397391" class="whatsapp-float" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+            <path fill="#ffffff" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+        </svg>
+    </a>
+
+    <!-- Notificação de Compra (Elemento oculto para o main.js) -->
+    <div id="purchase-notification" class="purchase-notification" style="display: none;">
+        <div class="purchase-notification__content">
+            <div class="purchase-notification__avatar-container">
+                <img src="images/logo.png" alt="Avatar" class="purchase-notification__avatar">
+            </div>
+            <div class="purchase-notification__info">
+                <p class="purchase-notification__name">Nome do Cliente</p>
+                <p class="purchase-notification__message">Acabou de comprar #Cabelos de Diva</p>
+                <p class="purchase-notification__time">Agora mesmo</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Para B2B</h3>
+                    <a href="https://typebot.co/belafi" class="footer-button" target="_blank">Programa para Lojas</a>
+                    <a href="https://typebot.co/belafi" class="footer-button" target="_blank">Seja um Distribuidor</a>
+                    <a href="https://typebot.co/belafi" class="footer-button" target="_blank">Para Profissionais</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Faça parte da Belafí</h3>
+                    <a href="https://typebot.co/belafi" class="footer-button" target="_blank">Influencers/Parcerias</a>
+                    <a href="https://typebot.co/belafi" class="footer-button" target="_blank">Programa UGC</a>
+                    <a href="https://typebot.co/belafi" class="footer-button" target="_blank">Afiliados</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contato</h3>
+                    <p><strong>Telefone:</strong> (11) 96639-7391</p>
+                    <p><strong>Instagram:</strong> @belaficosmeticos</p>
+                    <p><strong>Email:</strong> belaficosmeticos@gmail.com</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-logo">
+                    <img src="images/logo.png" alt="Logo #Cabelos de Diva">
+                </div>
+                <div class="footer-info">
+                    <p class="cnpj">CNPJ: 56.457.282/0001-05</p>
+                    <p class="address">Av. Hilário Pereira de Souza, 406 - Osasco/SP - CEP: 06010-170</p>
+                    <p class="copyright">© 2023 Belafí Cosméticos. Todos os direitos reservados.</p>
+                </div>
+                <div class="footer-social" style="display: none;">
+                    <a href="#" class="social-icon" aria-label="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                            <path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="TikTok">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                            <path fill="currentColor" d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Estilos para a notificação de compra -->
+    <style>
+        .purchase-notification {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            z-index: 9999;
+            max-width: 300px;
+            animation: slideIn 0.5s ease-out, fadeOut 0.5s ease-in 4.5s forwards;
         }
+        
+        .purchase-notification__content {
+            display: flex;
+            align-items: center;
+        }
+        
+        .purchase-notification__avatar-container {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+            background-color: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .purchase-notification__avatar {
+            width: 80%;
+            height: auto;
+            object-fit: contain;
+        }
+        
+        .purchase-notification__info {
+            flex: 1;
+        }
+        
+        .purchase-notification__name {
+            font-weight: bold;
+            margin: 0 0 5px 0;
+            color: #333;
+        }
+        
+        .purchase-notification__message {
+            margin: 0 0 5px 0;
+            color: #666;
+        }
+        
+        .purchase-notification__time {
+            font-size: 0.8rem;
+            color: #999;
+            margin: 0;
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+    </style>
 
-        document.addEventListener('DOMContentLoaded', () => {
-            // Máscara para WhatsApp
-            const whatsappInput = document.querySelector('input[type="tel"]');
-            whatsappInput.addEventListener('input', (e) => {
-                let value = e.target.value.replace(/\D/g, '');
-                if (value.length > 11) value = value.slice(0, 11);
-                if (value.length > 2) value = `(${value.slice(0, 2)}) ${value.slice(2)}`;
-                if (value.length > 9) value = `${value.slice(0, 10)}-${value.slice(10)}`;
-                e.target.value = value;
+    <!-- Script para corrigir problemas com o main.js e habilitar as notificações de compra -->
+    <script>
+        // Corrigir problemas com o main.js
+        document.addEventListener('DOMContentLoaded', function() {
+            // Modificar apenas os botões de compra na seção de preços para redirecionar para o checkout
+            document.querySelectorAll('.price-card .cta-button').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Determinar qual URL usar com base no botão
+                    let url = 'https://loja.infinitepay.io/belaficosmeticos/rkp0167-1-leave-in-cabelos-de-diva---oferta-lancam';
+                    
+                    if (this.closest('.price-card')) {
+                        const priceCard = this.closest('.price-card');
+                        const title = priceCard.querySelector('h3').textContent;
+                        
+                        if (title.includes('2 Unidades')) {
+                            url = 'https://loja.infinitepay.io/belaficosmeticos/tev9311-2-leave-in-cabelos-de-diva---oferta-lancam';
+                        } else if (title.includes('3 Unidades')) {
+                            url = 'https://loja.infinitepay.io/belaficosmeticos/mfj4654-3-leave-in-cabelos-de-diva---oferta-lancam';
+                        }
+                    }
+                    
+                    // Redirecionar diretamente
+                    window.location.href = url;
+                });
             });
-
-            // Formulário
-            const vipForm = document.getElementById('vipForm');
-            vipForm.addEventListener('submit', async (e) => {
-                e.preventDefault();
-
-                // Pega os dados do formulário
-                const name = vipForm.querySelector('input[type="text"]').value;
-                const whatsapp = vipForm.querySelector('input[type="tel"]').value.replace(/\D/g, ''); // Remove caracteres não numéricos
-
-                // Chama a função save()
-                const success = await save(name, whatsapp);
-
-                if (success) {
-                    alert('Parabéns! Você está na nossa lista VIP. Em breve entraremos em contato!');
-                    vipForm.reset();
-                } else {
-                    //alert('Ocorreu um erro ao se inscrever. Tente novamente mais tarde.');
-                }
+            
+            // Prevenir erros do main.js
+            if (typeof Element.prototype.scrollIntoView === 'function') {
+                const originalScrollIntoView = Element.prototype.scrollIntoView;
+                Element.prototype.scrollIntoView = function() {
+                    try {
+                        originalScrollIntoView.apply(this, arguments);
+                    } catch (e) {
+                        console.log("Erro de scrollIntoView prevenido");
+                    }
+                };
+            }
+            
+            // Adicionar rolagem suave para os links de âncora
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        // Rolagem suave
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100, // Offset para não ficar muito no topo
+                            behavior: 'smooth'
+                        });
+                    }
+                });
             });
+            
+            // Corrigir a função showPurchasePopup do main.js
+            if (typeof window.showPurchasePopup !== 'function') {
+                window.showPurchasePopup = function(data) {
+                    try {
+                        const popup = document.getElementById('purchase-notification');
+                        if (!popup) return;
+                        
+                        const avatar = popup.querySelector('.purchase-notification__avatar');
+                        const name = popup.querySelector('.purchase-notification__name');
+                        const message = popup.querySelector('.purchase-notification__message');
+                        const time = popup.querySelector('.purchase-notification__time');
+                        
+                        // Usar o logo como fallback em vez de tentar carregar avatar.jpg
+                        if (avatar && data && data.avatar) {
+                            // Verificar se a imagem existe antes de definir o src
+                            const img = new Image();
+                            img.onerror = function() {
+                                // Se a imagem não existir, manter o logo
+                                console.log("Imagem de avatar não encontrada, usando logo");
+                            };
+                            img.onload = function() {
+                                // Se a imagem existir, usá-la
+                                avatar.src = data.avatar;
+                            };
+                            img.src = data.avatar;
+                        }
+                        
+                        if (name) name.textContent = data && data.name ? data.name : 'Alguém';
+                        if (message) message.textContent = data && data.message ? data.message : 'Acabou de comprar #Cabelos de Diva';
+                        if (time) time.textContent = data && data.time ? data.time : 'Agora mesmo';
+                        
+                        // Mostrar a notificação
+                        popup.style.display = 'block';
+                        
+                        // Esconder após 5 segundos
+                        setTimeout(function() {
+                            popup.style.display = 'none';
+                        }, 5000);
+                    } catch (e) {
+                        console.log("Erro ao mostrar notificação:", e);
+                    }
+                };
+            }
         });
     </script>
 </body>
-
-</html>
+</html> 
